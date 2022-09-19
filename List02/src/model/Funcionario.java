@@ -10,11 +10,8 @@ public class Funcionario
     }
 
     private final String nome;
-
     private final LocalDate dataNascimento;
-
     private TipoContrato tipoContrato;
-
     private double salario;
     private int filhosMenoresDeIdade;
     private LocalDate dataAdmissao;
@@ -25,8 +22,9 @@ public class Funcionario
         this.dataNascimento = dataNascimento;
     }
 
-    public void contratar(double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
+    public void contratar(TipoContrato tipoContrato, double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
     {
+        this.tipoContrato = tipoContrato;
         this.salario = salario;
         this.filhosMenoresDeIdade = filhosMenorDeIdade;
         this.dataAdmissao = dataAdmissao;
@@ -82,17 +80,14 @@ public class Funcionario
         this.dataAdmissao = dataAdmissao;
     }
 
-
     public double calculaSalarioBruto(int horasTrabalhadas, TipoContrato tipoContrato)
     {
-        setTipoContrato(tipoContrato);
-
         if (tipoContrato == TipoContrato.Horista)
         {
             return horasTrabalhadas * salario;
         }
 
-        return (horasTrabalhadas * salario) * 30;
+        return salario;
     }
 
     public double calculaDescontoINSS()
@@ -146,12 +141,13 @@ public class Funcionario
 
     public void mostrarFolhaDePagamento(int horasTrabalhadas, TipoContrato tipoContrato)
     {
-        System.out.printf("\n------- Folha De Pagamento -------" +
-                        "\nSalário Bruto: R$ %.2f" +
-                        "\nDescontos:" +
-                        "\nINSS: R$ %.2f" +
-                        "\nImposto De Renda: R$ %.2f" +
-                        "\nSalário Liquído: R$ %.2f",
+        System.out.printf("""
+                        ------- Folha De Pagamento -------
+                        Salário Bruto: R$ %.2f
+                        Descontos:
+                        INSS: R$ %.2f
+                        Imposto De Renda: R$ %.2f
+                        Salário Liquído: R$ %.2f""",
                 calculaSalarioBruto(horasTrabalhadas, tipoContrato),
                 calculaDescontoINSS(),
                 calculaDescontoImpostoDeRenda(),
@@ -161,12 +157,18 @@ public class Funcionario
     @Override
     public String toString()
     {
-        return "\nDados do Funcionário " +
-                "\nNome: '" + nome + '\'' +
-                "\nContrato: " + tipoContrato +
-                "\nSalário: R$ " + salario +
-                "\nFilhos Menores de Idade: " + filhosMenoresDeIdade +
-                "\n Data de Admissão: " + dataAdmissao;
+        return String.format("""
+                        Dados do Funcionário\s
+                        Nome: %s
+                        Contrato: %s
+                        Salário: R$ %.2f
+                        Filhos Menores de Idade: %d
+                        Data de Admissão: %s""",
+                nome,
+                tipoContrato,
+                salario,
+                filhosMenoresDeIdade,
+                dataAdmissao);
     }
 
 }
