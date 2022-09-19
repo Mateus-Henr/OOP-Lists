@@ -4,12 +4,14 @@ import java.time.LocalDate;
 
 public class Funcionario
 {
-    private final String nome;
-
     public enum TipoContrato
     {
         Efetivo, Horista
     }
+
+    private final String nome;
+
+    private final LocalDate dataNascimento;
 
     private TipoContrato tipoContrato;
 
@@ -17,16 +19,36 @@ public class Funcionario
     private int filhosMenoresDeIdade;
     private LocalDate dataAdmissao;
 
-    public Funcionario(String nome, LocalDate dataAniversario)
+    public Funcionario(String nome, LocalDate dataNascimento)
     {
         this.nome = nome;
+        this.dataNascimento = dataNascimento;
     }
 
-    public void contratar(double salario, int filhosMenorDeIdade, LocalDate dataAdmissao, TipoContrato tipoContrato)
+    public void contratar(double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
     {
         this.salario = salario;
         this.filhosMenoresDeIdade = filhosMenorDeIdade;
         this.dataAdmissao = dataAdmissao;
+    }
+
+    public String getNome()
+    {
+        return nome;
+    }
+
+    public LocalDate getDataNascimento()
+    {
+        return dataNascimento;
+    }
+
+    public TipoContrato getTipoContrato()
+    {
+        return tipoContrato;
+    }
+
+    public void setTipoContrato(TipoContrato tipoContrato)
+    {
         this.tipoContrato = tipoContrato;
     }
 
@@ -60,9 +82,17 @@ public class Funcionario
         this.dataAdmissao = dataAdmissao;
     }
 
-    public double calculaSalarioBruto(int horasTrabalhadas, TipoContrato contrato)
+
+    public double calculaSalarioBruto(int horasTrabalhadas, TipoContrato tipoContrato)
     {
-        return horasTrabalhadas * salario;
+        setTipoContrato(tipoContrato);
+
+        if (tipoContrato == TipoContrato.Horista)
+        {
+            return horasTrabalhadas * salario;
+        }
+
+        return (horasTrabalhadas * salario) * 30;
     }
 
     public double calculaDescontoINSS()

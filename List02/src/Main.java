@@ -11,10 +11,10 @@ public class Main
         Funcionario pedro = new Funcionario("Maria", LocalDate.parse("1980-07-07"));
         Funcionario caio = new Funcionario("Maria", LocalDate.parse("1985-02-09"));
 
-        maria.contratar(1000.00, 1, LocalDate.parse("2016-02-09"), Funcionario.TipoContrato.Efetivo);
-        joao.contratar(1904.00, 3, LocalDate.parse("2016-02-09"), Funcionario.TipoContrato.Efetivo);
-        pedro.contratar(2900.00, 2, LocalDate.parse("2016-02-09"), Funcionario.TipoContrato.Horista);
-        caio.contratar(5000.00, 0, LocalDate.parse("2016-02-09"), Funcionario.TipoContrato.Efetivo);
+        maria.contratar(1000.00, 1, LocalDate.parse("2016-02-09"));
+        joao.contratar(1904.00, 3, LocalDate.parse("2016-02-09"));
+        pedro.contratar(2900.00, 2, LocalDate.parse("2016-02-09"));
+        caio.contratar(5000.00, 0, LocalDate.parse("2016-02-09"));
 
         System.out.println("Funcionários:");
 
@@ -26,7 +26,7 @@ public class Main
         System.out.println(joao);
         joao.mostrarFolhaDePagamento(10, Funcionario.TipoContrato.Efetivo);
 
-        System.out.println("\n\nn3° Funcionário");
+        System.out.println("\n\n\n3° Funcionário");
         System.out.println(pedro);
         pedro.mostrarFolhaDePagamento(8, Funcionario.TipoContrato.Horista);
 
