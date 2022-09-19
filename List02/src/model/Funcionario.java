@@ -142,11 +142,11 @@ public class Funcionario
     public void mostrarFolhaDePagamento(int horasTrabalhadas, TipoContrato tipoContrato)
     {
         System.out.printf("""
-                        ------- Folha De Pagamento -------
+                        ------- Folha de Pagamento -------
                         Salário Bruto: R$ %.2f
                         Descontos:
                         INSS: R$ %.2f
-                        Imposto De Renda: R$ %.2f
+                        Imposto de Renda: R$ %.2f
                         Salário Liquído: R$ %.2f""",
                 calculaSalarioBruto(horasTrabalhadas, tipoContrato),
                 calculaDescontoINSS(),
@@ -158,7 +158,7 @@ public class Funcionario
     public String toString()
     {
         return String.format("""
-                        Dados do Funcionário\s
+                        ------ Dados do Funcionário ------
                         Nome: %s
                         Contrato: %s
                         Salário: R$ %.2f
