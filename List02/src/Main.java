@@ -1,7 +1,4 @@
-import model.Contrato;
-import model.FolhaDePagamento;
-import model.Funcionario;
-import model.TipoContrato;
+import model.*;
 
 import java.time.LocalDate;
 
@@ -17,7 +14,7 @@ public class Main
         Funcionario pedro = new Funcionario("Maria", LocalDate.parse("1980-07-07"), padrao);
         Funcionario caio = new Funcionario("Maria", LocalDate.parse("1985-02-09"), padrao);
 
-        FolhaDePagamento folhaDePagamento = new FolhaDePagamento(maria);
+        FolhaDePagamentoHorista folhaDePagamento = new FolhaDePagamentoHorista(maria);
 
         System.out.println("Funcionários:");
 
