@@ -69,7 +69,7 @@ public class FolhaDePagamentoHorista extends FolhaDePagamento
 
     public double calculaSalarioLiquido(int horasTrabalhadas)
     {
-        double salario = funcionario.getContrato().getSalario();
+        double salario = funcionario.getContrato().getSalario() * horasTrabalhadas;
 
         return salario - calculaDescontoINSS(horasTrabalhadas) - calculaDescontoImpostoDeRenda(horasTrabalhadas);
     }
