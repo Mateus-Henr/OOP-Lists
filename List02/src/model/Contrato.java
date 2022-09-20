@@ -9,7 +9,7 @@ public class Contrato
     private int filhosMenoresDeIdade;
     private LocalDate dataAdmissao;
 
-    public void contratar(TipoContrato tipoContrato, double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
+    public Contrato(TipoContrato tipoContrato, double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
     {
         this.tipoContrato = tipoContrato;
         this.salario = salario;

@@ -6,13 +6,17 @@ public class Funcionario
 {
     private final String nome;
     private final LocalDate dataNascimento;
-    private final Contrato contrato;
+    private Contrato contrato;
 
-    public Funcionario(String nome, LocalDate dataNascimento, Contrato contrato)
+    public Funcionario(String nome, LocalDate dataNascimento)
     {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-        this.contrato = contrato;
+    }
+
+    public void contratar(TipoContrato tipoContrato, double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
+    {
+        this.contrato = new Contrato(tipoContrato, salario, filhosMenorDeIdade, dataAdmissao);
     }
 
     public String getNome()
@@ -28,6 +32,11 @@ public class Funcionario
     public Contrato getContrato()
     {
         return contrato;
+    }
+
+    public void setContrato(Contrato contrato)
+    {
+        this.contrato = contrato;
     }
 
     @Override

@@ -11,7 +11,7 @@ public class FolhaDePagamentoHorista extends FolhaDePagamento
     {
         Contrato contrato = funcionario.getContrato();
 
-        if (contrato.getTipoContrato() == TipoContrato.Horista)
+        if (contrato.getTipoContrato() == TipoContrato.HORISTA)
         {
             return horasTrabalhadas * contrato.getSalario();
         }

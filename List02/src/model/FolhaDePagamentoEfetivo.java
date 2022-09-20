@@ -7,14 +7,9 @@ public class FolhaDePagamentoEfetivo extends FolhaDePagamento
         super(funcionario);
     }
 
-    public double calculaSalarioBruto(int horasTrabalhadas)
+    public double calculaSalarioBruto()
     {
         Contrato contrato = funcionario.getContrato();
-
-        if (contrato.getTipoContrato() == TipoContrato.Horista)
-        {
-            return horasTrabalhadas * contrato.getSalario();
-        }
 
         return contrato.getSalario();
     }
@@ -74,7 +69,7 @@ public class FolhaDePagamentoEfetivo extends FolhaDePagamento
         return salario - calculaDescontoINSS() - calculaDescontoImpostoDeRenda();
     }
 
-    public void mostrarFolhaDePagamento(int horasTrabalhadas)
+    public void mostrarFolhaDePagamento()
     {
         System.out.printf("""
                         ------- Folha de Pagamento -------
@@ -85,7 +80,7 @@ public class FolhaDePagamentoEfetivo extends FolhaDePagamento
                         Imposto de Renda: R$ %.2f
                         Salário Liquído: R$ %.2f""",
                 funcionario.getNome(),
-                calculaSalarioBruto(horasTrabalhadas),
+                calculaSalarioBruto(),
                 calculaDescontoINSS(),
                 calculaDescontoImpostoDeRenda(),
                 calculaSalarioLiquido());
