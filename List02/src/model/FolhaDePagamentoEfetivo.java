@@ -1,8 +1,8 @@
 package model;
 
-public class FolhaDePagementoMensal extends FolhaDePagamento
+public class FolhaDePagamentoEfetivo extends FolhaDePagamento
 {
-    public FolhaDePagementoMensal(Funcionario funcionario)
+    public FolhaDePagamentoEfetivo(Funcionario funcionario)
     {
         super(funcionario);
     }

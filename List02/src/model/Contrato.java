@@ -57,4 +57,18 @@ public class Contrato
         this.dataAdmissao = dataAdmissao;
     }
 
+    public String toString()
+    {
+        return String.format("""
+                        Tipo de Contrato: %s
+                        Salário: %.2f
+                        Filhos Menores de Idade: %d
+                        Data de Admmissão: %s
+                        """,
+                tipoContrato,
+                salario,
+                filhosMenoresDeIdade,
+                dataAdmissao);
+    }
+
 }
