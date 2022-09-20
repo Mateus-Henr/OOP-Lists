@@ -6,11 +6,13 @@ public class Funcionario
 {
     private final String nome;
     private final LocalDate dataNascimento;
+    private final Contrato contrato;
 
-    public Funcionario(String nome, LocalDate dataNascimento)
+    public Funcionario(String nome, LocalDate dataNascimento, Contrato contrato)
     {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
+        this.contrato = contrato;
     }
 
     public String getNome()
@@ -23,6 +25,11 @@ public class Funcionario
         return dataNascimento;
     }
 
+    public Contrato getContrato()
+    {
+        return contrato;
+    }
+
     @Override
     public String toString()
     {
@@ -30,9 +37,11 @@ public class Funcionario
                         ------ Dados do Funcionário ------
                         Nome: %s
                         Data de Nascimento: %s
+                        %s
                         """,
                 nome,
-                dataNascimento);
+                dataNascimento,
+                contrato.toString());
     }
 
 }

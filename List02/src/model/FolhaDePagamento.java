@@ -3,16 +3,16 @@ package model;
 public class FolhaDePagamento
 {
     private final Funcionario funcionario;
-    private final Contrato contrato;
 
-    public FolhaDePagamento(Funcionario funcionario, Contrato contrato)
+    public FolhaDePagamento(Funcionario funcionario)
     {
         this.funcionario = funcionario;
-        this.contrato = contrato;
     }
 
     public double calculaSalarioBruto(int horasTrabalhadas)
     {
+        Contrato contrato = funcionario.getContrato();
+
         if (contrato.getTipoContrato() == TipoContrato.Horista)
         {
             return horasTrabalhadas * contrato.getSalario();
@@ -23,7 +23,7 @@ public class FolhaDePagamento
 
     public double calculaDescontoINSS()
     {
-        double salario = contrato.getSalario();
+        double salario = funcionario.getContrato().getSalario();
 
         if (salario <= 1659.38)
         {
@@ -45,7 +45,7 @@ public class FolhaDePagamento
 
     public double calculaDescontoImpostoDeRenda()
     {
-        double salario = contrato.getSalario();
+        double salario = funcionario.getContrato().getSalario();
 
         if (salario <= 1903.98)
         {
@@ -71,7 +71,7 @@ public class FolhaDePagamento
 
     public double calculaSalarioLiquido()
     {
-        double salario = contrato.getSalario();
+        double salario = funcionario.getContrato().getSalario();
 
         return salario - calculaDescontoINSS() - calculaDescontoImpostoDeRenda();
     }
