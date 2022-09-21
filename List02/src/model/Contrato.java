@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class Contrato
 {
-    private TipoContrato tipoContrato;
+    private TipoDeContrato tipoContrato;
     private double salario;
     private int filhosMenoresDeIdade;
     private LocalDate dataAdmissao;
 
-    public Contrato(TipoContrato tipoContrato, double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
+    public Contrato(TipoDeContrato tipoContrato, double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
     {
         this.tipoContrato = tipoContrato;
         this.salario = salario;
@@ -17,12 +17,12 @@ public class Contrato
         this.dataAdmissao = dataAdmissao;
     }
 
-    public TipoContrato getTipoContrato()
+    public TipoDeContrato getTipoContrato()
     {
         return tipoContrato;
     }
 
-    public void setTipoContrato(TipoContrato tipoContrato)
+    public void setTipoContrato(TipoDeContrato tipoContrato)
     {
         this.tipoContrato = tipoContrato;
     }
@@ -63,7 +63,7 @@ public class Contrato
                         Tipo de Contrato: %s
                         Salário: %.2f
                         Filhos Menores de Idade: %d
-                        Data de Admmissão: %s
+                        Data de Admissão: %s
                         """,
                 tipoContrato,
                 salario,

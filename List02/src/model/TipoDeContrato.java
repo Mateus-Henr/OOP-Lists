@@ -1,6 +1,6 @@
 package model;
 
-public enum TipoContrato
+public enum TipoDeContrato
 {
     EFETIVO, HORISTA
 }

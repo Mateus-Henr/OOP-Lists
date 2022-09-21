@@ -14,7 +14,7 @@ public class Funcionario
         this.dataNascimento = dataNascimento;
     }
 
-    public void contratar(TipoContrato tipoContrato, double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
+    public void contratar(TipoDeContrato tipoContrato, double salario, int filhosMenorDeIdade, LocalDate dataAdmissao)
     {
         this.contrato = new Contrato(tipoContrato, salario, filhosMenorDeIdade, dataAdmissao);
     }
